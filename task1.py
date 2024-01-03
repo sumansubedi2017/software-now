@@ -1,13 +1,17 @@
 import pandas as pd 
 import glob
 
+import spacy
+
+npl =spacy.load("en_core_web_sm")
+
 
 #dataframe = pd.read_csv (r'C:\Users\rosun\Desktop\python code\*.csv')
 
 #df to list
 #all_text_data = dataframe.values.flatten()
 
-#print(all_text_data)
+#print(all_text_data
 
 #for text in all_text_data:
 #    print(text)
@@ -26,7 +30,7 @@ for csv_file in glob.glob(csv_files_path):
     for row in df.values:
         for value in row:
             all_texts.append(str(value))
-            
+
 with open(output_txt_file, 'w', encoding='utf-8') as txt_file:
     txt_file.write('\n'.join(all_texts)) 
 
