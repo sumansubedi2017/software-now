@@ -42,9 +42,9 @@ print(f"Text from all CSV files has been extracted and stored in {output_txt_fil
 
 
 #Q:3
-texxt_file_path = r'C:\Users\rosun\Desktop\python code/output.txt'
+text_file_path = r'C:\Users\rosun\Desktop\python code/output.txt'
 
-with open(texxt_file_path, 'r', encoding='utf-8') as file:
+with open(text_file_path, 'r', encoding='utf-8') as file:
     text = file.read()
 
 
@@ -78,3 +78,46 @@ with open(output_csv_path, 'w', newline='', encoding='utf-8') as csvfile:
         writer.writerow({'Word': word, 'Count': count})
 
 print(f"Top 30 common words and their counts have been stored in {output_csv_path}")
+
+
+#Q 3.2
+
+from transformers import AutoTokenizer
+from collections import Counter
+import string
+
+def count_top_tokens(text_file_path, model_name,top_n=30 ):
+
+    #initialize the tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+    #read the text file
+    with open(text_file_path, 'r', encoding = 'utf-8') as file:
+        text = file.read()
+
+
+
+     # Preprocess the text: Convert to lowercase and remove punctuation
+    translator = str.maketrans("", "", string.punctuation)
+    text = text.lower().translate(translator)
+
+    # Tokenize the text
+    tokens = tokenizer.tokenize(text)
+
+    # Count the occurrences of each token
+    token_counts = Counter(tokens)
+
+    # Get the top N most common tokens
+    top_tokens = token_counts.most_common(top_n)
+
+    return top_tokens
+
+# Example usage:
+#text_file_path = 'path/to/your/textfile.txt'
+model_name = 'bert-base-uncased'  # You can replace this with any other transformer model
+top_tokens = count_top_tokens(text_file_path, model_name)
+
+# Print the top 30 tokens and their counts
+print("Top 30 Tokens:")
+for token, count in top_tokens:
+    print(f"{token}: {count}")
