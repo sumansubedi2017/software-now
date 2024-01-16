@@ -1,3 +1,6 @@
+
+#Github Repository link :https://github.com/sumansubedi2017/software-now
+
 from collections import Counter
 import re
 import pandas as pd
@@ -21,11 +24,11 @@ def count_word_occurrences(file_path):
 
     return top_30_words
 
-file_path = r'C:\Users\rosun\Desktop\python code\output.txt'
+file_path = r'C:\Users\rosun\software-now\output.txt'
 result = count_word_occurrences(file_path)
 
 # Specifying the directory for saving the CSV file
-output_directory = r'C:\Users\rosun\Desktop\output_directory'
+output_directory = r'C:\Users\rosun\software-now\output_directory'
 os.makedirs(output_directory, exist_ok=True)
 
 # Create a Pandas DataFrame
@@ -65,7 +68,7 @@ def count_top_tokens(text_file_path, model_name, top_n=30):
             return top_tokens
 
 # Example usage:
-text_file_path = r'C:\Users\rosun\Desktop\python code\output.txt'
+text_file_path = r'C:\Users\rosun\software-now\output.txt'
 model_name = 'bert-base-uncased'  # You can replace this with any other transformer model
 top_tokens = count_top_tokens(text_file_path, model_name)
 

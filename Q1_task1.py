@@ -1,11 +1,14 @@
+
+#Github Repository link :https://github.com/sumansubedi2017/software-now
+
 import os
 import pandas as pd 
 import glob
 
 
 # Q:1 and 2
-csv_files_path = r'C:\Users\rosun\Desktop\python code\csvs'
-output_txt_file = r'C:\Users\rosun\Desktop\python code\output.txt'
+csv_files_path = r'C:\Users\rosun\software-now\csvs'
+output_txt_file = r'C:\Users\rosun\software-now\output.txt'
 all_texts = []
 
 # Join the folder path with the file pattern
